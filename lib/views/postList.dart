@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/views/profileView.dart';
 
 import '../user/Post.dart';
 import '../user/User.dart';
@@ -120,9 +121,54 @@ class _PostListState extends State<PostList> {
     ],
   );
 
+  Widget showPost(Post userPost) => Column(
+    children: [
+      postHeader(userPost),
+      Container(
+        margin: EdgeInsets.all(8),
+        child: Row(
+          children: [
+            Text(
+              userPost.postcontent,
+              style: nametxtStyle,
+            )
+          ],
+        ),
+      ),
+      postImage(userPost),
+      postCount(userPost),
+      Divider(),
+      buttons(userPost),
+      SizedBox(
+        height: 10,
+        child: Container(
+          color: Colors.grey,
+        ),
+      ),
+      SizedBox(
+        height: 15,
+      )
+    ],
+  );
+
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: ListView(
+        shrinkWrap: true,
+        children:
+          widget.user.userList.map((userPost) {
+            return InkWell(
+              onTap: () {
+                gotoPage(context, Profileview(userPost: userPost));
+              },
+              child: showPost(userPost),
+            );
+          }).toList(),
+
+      ),
+    );
   }
 }
