@@ -239,32 +239,31 @@ class _ProfileviewState extends State<Profileview> {
   Widget commentButton(Post userPost) =>
       Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-
-              controller: commentController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Comment',
-              ),
-            ),
-          ),
-          TextButton(
-            onPressed: () {
-              if (commentController.text.isNotEmpty) {
-                setState(() {
-                  // Add new comment to the com list
-                  userPost.com.add(commentController.text);
-                  commentController.clear(); // Clear the text field
-                });
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                        controller: commentController,
+                         decoration: InputDecoration(
+                          hintText: 'Enter your comment...',
+                         suffixIcon: IconButton(
+                            icon: Icon(Icons.arrow_forward),
+                              onPressed: () {
+                            if (commentController.text.isNotEmpty) {
+                                setState(() {
+                                userPost.com.add(commentController.text);
+                              commentController.clear();
+                  });
               }
-            },
-            child: Text('Comment'),
+              },
           ),
-        ],
-      );
+          border: OutlineInputBorder(),
+          ),
+          ),
+                  ),
+  ],
+  );
+
 
   @override
   Widget build(BuildContext context) {
