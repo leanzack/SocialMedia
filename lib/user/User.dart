@@ -15,6 +15,7 @@ class User {
      numcomments: '2323 comments',
      numshare: '20 shares',
      isLiked: false,
+      com: [],
     ),
     Post(
       userimg: 'image/img_2.png',
@@ -25,6 +26,7 @@ class User {
       numcomments: '2323 comments',
       numshare: '20 shares',
       isLiked: false,
+      com: [],
     ),
     Post(
       userimg: 'image/img.png',
@@ -35,6 +37,7 @@ class User {
       numcomments: '2323 comments',
       numshare: '20 shares',
       isLiked: false,
+      com: [],
     ),
   ];
 

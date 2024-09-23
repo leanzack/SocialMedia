@@ -31,6 +31,7 @@ class _SocialMediaState extends State<SocialMedia> {
         MainHeader(user: user),
           infoHeader(user: user),
           friendList(user: user),
+
           SizedBox(
             height: 20,
           ),
